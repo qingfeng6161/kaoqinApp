@@ -1,0 +1,322 @@
+
+[
+  {
+    "_id": "1",
+    "employee_id": "1",
+    "employee_name": "张三",
+    "date": "2024-01-15",
+    "periods": {
+      "morning": {
+        "start": "09:00",
+        "end": "12:00",
+        "duration": 3,
+        "base_hours": 3,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "13:30",
+        "end": "17:30",
+        "duration": 4,
+        "base_hours": 4,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "other": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      }
+    },
+    "summary": {
+      "total_hours": 7,
+      "total_base_hours": 7,
+      "total_bonus_hours": 0,
+      "cross_day_periods": 0
+    },
+    "status": "正常",
+    "notes": "标准工作日",
+    "createdAt": 1705276800000,
+    "updatedAt": 1705276800000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  },
+  {
+    "_id": "2",
+    "employee_id": "1",
+    "employee_name": "张三",
+    "date": "2024-01-16",
+    "periods": {
+      "morning": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "22:00",
+        "end": "02:30",
+        "duration": 5.75,
+        "base_hours": 4.5,
+        "bonus_hours": 1.25,
+        "is_cross_day": true
+      },
+      "other": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      }
+    },
+    "summary": {
+      "total_hours": 5.75,
+      "total_base_hours": 4.5,
+      "total_bonus_hours": 1.25,
+      "cross_day_periods": 1
+    },
+    "status": "正常",
+    "notes": "夜班加班，从22:00工作至次日02:30",
+    "createdAt": 1705363200000,
+    "updatedAt": 1705363200000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  },
+  {
+    "_id": "3",
+    "employee_id": "2",
+    "employee_name": "李四",
+    "date": "2024-01-15",
+    "periods": {
+      "morning": {
+        "start": "08:30",
+        "end": "12:00",
+        "duration": 3.5,
+        "base_hours": 3.5,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "14:00",
+        "end": "18:00",
+        "duration": 4,
+        "base_hours": 4,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "19:00",
+        "end": "23:30",
+        "duration": 4.5,
+        "base_hours": 4.5,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "other": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      }
+    },
+    "summary": {
+      "total_hours": 12,
+      "total_base_hours": 12,
+      "total_bonus_hours": 0,
+      "cross_day_periods": 0
+    },
+    "status": "正常",
+    "notes": "全天工作，包含晚间加班",
+    "createdAt": 1705276800000,
+    "updatedAt": 1705276800000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  },
+  {
+    "_id": "4",
+    "employee_id": "2",
+    "employee_name": "李四",
+    "date": "2024-01-20",
+    "periods": {
+      "morning": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "other": {
+        "start": "20:00",
+        "end": "01:30",
+        "duration": 6.25,
+        "base_hours": 5.5,
+        "bonus_hours": 0.75,
+        "is_cross_day": true
+      }
+    },
+    "summary": {
+      "total_hours": 6.25,
+      "total_base_hours": 5.5,
+      "total_bonus_hours": 0.75,
+      "cross_day_periods": 1
+    },
+    "status": "正常",
+    "notes": "夜间加班，从20:00工作至次日01:30",
+    "createdAt": 1705708800000,
+    "updatedAt": 1705708800000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  },
+  {
+    "_id": "5",
+    "employee_id": "3",
+    "employee_name": "王五",
+    "date": "2024-01-18",
+    "periods": {
+      "morning": {
+        "start": "09:30",
+        "end": "12:30",
+        "duration": 3,
+        "base_hours": 3,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "14:00",
+        "end": "18:30",
+        "duration": 4.5,
+        "base_hours": 4.5,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "19:30",
+        "end": "03:00",
+        "duration": 8.25,
+        "base_hours": 7.5,
+        "bonus_hours": 0.75,
+        "is_cross_day": true
+      },
+      "other": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      }
+    },
+    "summary": {
+      "total_hours": 15.75,
+      "total_base_hours": 15,
+      "total_bonus_hours": 0.75,
+      "cross_day_periods": 1
+    },
+    "status": "正常",
+    "notes": "全天工作含深夜加班，从19:30工作至次日03:00",
+    "createdAt": 1705526400000,
+    "updatedAt": 1705526400000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  },
+  {
+    "_id": "6",
+    "employee_id": "1",
+    "employee_name": "张三",
+    "date": "2024-01-22",
+    "periods": {
+      "morning": {
+        "start": "08:00",
+        "end": "12:00",
+        "duration": 4,
+        "base_hours": 4,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "afternoon": {
+        "start": "13:00",
+        "end": "17:00",
+        "duration": 4,
+        "base_hours": 4,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "evening": {
+        "start": "18:00",
+        "end": "22:00",
+        "duration": 4,
+        "base_hours": 4,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      },
+      "other": {
+        "start": "",
+        "end": "",
+        "duration": 0,
+        "base_hours": 0,
+        "bonus_hours": 0,
+        "is_cross_day": false
+      }
+    },
+    "summary": {
+      "total_hours": 12,
+      "total_base_hours": 12,
+      "total_bonus_hours": 0,
+      "cross_day_periods": 0
+    },
+    "status": "正常",
+    "notes": "全天工作，无跨日",
+    "createdAt": 1705881600000,
+    "updatedAt": 1705881600000,
+    "owner": "system",
+    "createBy": "admin",
+    "updateBy": "admin"
+  }
+]
+  

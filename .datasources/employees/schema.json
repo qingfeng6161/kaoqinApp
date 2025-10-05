@@ -1,0 +1,54 @@
+
+{
+  "name": "employees",
+  "title": "员工信息",
+  "schemas": [
+    {
+      "name": "name",
+      "title": "员工姓名",
+      "type": "String"
+    },
+    {
+      "name": "status",
+      "title": "状态",
+      "type": "String"
+    },
+    {
+      "name": "employee_code",
+      "title": "员工编号",
+      "type": "String"
+    },
+    {
+      "name": "department",
+      "title": "部门",
+      "type": "String"
+    },
+    {
+      "name": "position",
+      "title": "职位",
+      "type": "String"
+    },
+    {
+      "name": "phone",
+      "title": "联系电话",
+      "type": "String"
+    },
+    {
+      "name": "email",
+      "title": "邮箱",
+      "type": "Email"
+    },
+    {
+      "name": "hire_date",
+      "title": "入职日期",
+      "type": "Date",
+      "format": "date"
+    },
+    {
+      "name": "notes",
+      "title": "备注",
+      "type": "MultiLineString"
+    }
+  ]
+}
+  

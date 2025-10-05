@@ -1,0 +1,53 @@
+
+{
+  "name": "shift_templates",
+  "title": "班次模板",
+  "schemas": [
+    {
+      "name": "name",
+      "title": "模板名称",
+      "type": "String"
+    },
+    {
+      "name": "morning_start",
+      "title": "上午上班时间",
+      "type": "String"
+    },
+    {
+      "name": "morning_end",
+      "title": "上午下班时间",
+      "type": "String"
+    },
+    {
+      "name": "afternoon_start",
+      "title": "下午上班时间",
+      "type": "String"
+    },
+    {
+      "name": "afternoon_end",
+      "title": "下午下班时间",
+      "type": "String"
+    },
+    {
+      "name": "evening_start",
+      "title": "晚上上班时间",
+      "type": "String"
+    },
+    {
+      "name": "evening_end",
+      "title": "晚上下班时间",
+      "type": "String"
+    },
+    {
+      "name": "other_start",
+      "title": "其它上班时间",
+      "type": "String"
+    },
+    {
+      "name": "other_end",
+      "title": "其它下班时间",
+      "type": "String"
+    }
+  ]
+}
+  

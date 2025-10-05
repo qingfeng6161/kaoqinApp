@@ -1,0 +1,96 @@
+
+{
+  "name": "attendance_records",
+  "title": "考勤记录",
+  "schemas": [
+    {
+      "name": "employee_id",
+      "title": "员工ID",
+      "type": "String"
+    },
+    {
+      "name": "employee_name",
+      "title": "员工姓名",
+      "type": "String"
+    },
+    {
+      "name": "date",
+      "title": "考勤日期",
+      "type": "Date",
+      "format": "date"
+    },
+    {
+      "name": "periods",
+      "title": "时段记录",
+      "type": "Object",
+      "properties": {
+        "morning": {
+          "type": "Object",
+          "properties": {
+            "start": {"type": "String", "title": "开始时间"},
+            "end": {"type": "String", "title": "结束时间"},
+            "duration": {"type": "Number", "title": "总工时"},
+            "base_hours": {"type": "Number", "title": "基础工时"},
+            "bonus_hours": {"type": "Number", "title": "奖励工时"},
+            "is_cross_day": {"type": "Boolean", "title": "是否跨日"}
+          }
+        },
+        "afternoon": {
+          "type": "Object",
+          "properties": {
+            "start": {"type": "String", "title": "开始时间"},
+            "end": {"type": "String", "title": "结束时间"},
+            "duration": {"type": "Number", "title": "总工时"},
+            "base_hours": {"type": "Number", "title": "基础工时"},
+            "bonus_hours": {"type": "Number", "title": "奖励工时"},
+            "is_cross_day": {"type": "Boolean", "title": "是否跨日"}
+          }
+        },
+        "evening": {
+          "type": "Object",
+          "properties": {
+            "start": {"type": "String", "title": "开始时间"},
+            "end": {"type": "String", "title": "结束时间"},
+            "duration": {"type": "Number", "title": "总工时"},
+            "base_hours": {"type": "Number", "title": "基础工时"},
+            "bonus_hours": {"type": "Number", "title": "奖励工时"},
+            "is_cross_day": {"type": "Boolean", "title": "是否跨日"}
+          }
+        },
+        "other": {
+          "type": "Object",
+          "properties": {
+            "start": {"type": "String", "title": "开始时间"},
+            "end": {"type": "String", "title": "结束时间"},
+            "duration": {"type": "Number", "title": "总工时"},
+            "base_hours": {"type": "Number", "title": "基础工时"},
+            "bonus_hours": {"type": "Number", "title": "奖励工时"},
+            "is_cross_day": {"type": "Boolean", "title": "是否跨日"}
+          }
+        }
+      }
+    },
+    {
+      "name": "summary",
+      "title": "统计汇总",
+      "type": "Object",
+      "properties": {
+        "total_hours": {"type": "Number", "title": "总工时"},
+        "total_base_hours": {"type": "Number", "title": "总基础工时"},
+        "total_bonus_hours": {"type": "Number", "title": "总奖励工时"},
+        "cross_day_periods": {"type": "Number", "title": "跨日班次数量"}
+      }
+    },
+    {
+      "name": "status",
+      "title": "状态",
+      "type": "String"
+    },
+    {
+      "name": "notes",
+      "title": "备注",
+      "type": "MultiLineString"
+    }
+  ]
+}
+  
