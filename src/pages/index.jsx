@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // @ts-ignore;
 import { useToast } from '@/components/ui';
 
-// @ts-ignore;
+// @ts-ignore
 import { LocalStorageManager } from '@/components/LocalStorageManager';
 import { MobileHeader } from '@/components/MobileHeader';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
@@ -11,7 +11,7 @@ import { AttendanceEntry } from '@/components/AttendanceEntry';
 import { StatisticsView } from '@/components/StatisticsView';
 import { SettingsView } from '@/components/SettingsView';
 
-// 主应用组件 - 安卓APK版本
+// Main application component - Android APK version
 export default function AttendanceApp(props) {
   const {
     $w
@@ -26,7 +26,7 @@ export default function AttendanceApp(props) {
   const [settings, setSettings] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  // 加载所有数据
+  // Load all data
   const loadAllData = () => {
     try {
       setEmployees(LocalStorageManager.employees.getAll());
@@ -35,43 +35,43 @@ export default function AttendanceApp(props) {
       setSettings(LocalStorageManager.settings.get());
       setIsLoading(false);
     } catch (error) {
-      console.error('加载数据失败:', error);
+      console.error('Load data failed:', error);
       toast({
-        title: "数据加载失败",
-        description: "无法加载本地数据，请重试",
+        title: "Data loading failed",
+        description: "Cannot load local data, please try again",
         variant: "destructive"
       });
       setIsLoading(false);
     }
   };
 
-  // 更新员工列表
+  // Update employee list
   const handleEmployeesChange = newEmployees => {
     setEmployees(newEmployees);
   };
 
-  // 更新考勤记录
+  // Update attendance records
   const handleRecordsChange = newRecords => {
     setAttendanceRecords(newRecords);
   };
 
-  // 更新模板
+  // Update templates
   const handleTemplatesChange = newTemplates => {
     setTemplates(newTemplates);
   };
 
-  // 更新设置
+  // Update settings
   const handleSettingsChange = newSettings => {
     setSettings(newSettings);
     LocalStorageManager.settings.update(newSettings);
   };
 
-  // 初始化
+  // Initialize
   useEffect(() => {
     loadAllData();
   }, []);
 
-  // 处理返回键（安卓特性）
+  // Handle back button (Android feature)
   useEffect(() => {
     const handleBackButton = e => {
       if (activeTab !== 'entry') {
@@ -80,7 +80,7 @@ export default function AttendanceApp(props) {
       }
     };
 
-    // 添加返回键监听
+    // Add back button listener
     if (typeof window !== 'undefined') {
       window.addEventListener('popstate', handleBackButton);
       return () => window.removeEventListener('popstate', handleBackButton);
@@ -90,15 +90,15 @@ export default function AttendanceApp(props) {
     return <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">正在加载数据...</p>
+          <p className="text-gray-600">Loading...</p>
         </div>
       </div>;
   }
   return <div className="min-h-screen bg-gray-50">
-      {/* 移动端头部 */}
-      <MobileHeader title={activeTab === 'entry' ? '考勤录入' : activeTab === 'statistics' ? '考勤统计' : '设置'} />
+      {/* Mobile header */}
+      <MobileHeader title={activeTab === 'entry' ? 'Attendance Entry' : activeTab === 'statistics' ? 'Statistics' : 'Settings'} />
 
-      {/* 主内容区域 */}
+      {/* Main content area */}
       <div className="pb-20">
         {activeTab === 'entry' && <AttendanceEntry employees={employees} attendanceRecords={attendanceRecords} templates={templates} settings={settings} onEmployeesChange={handleEmployeesChange} onRecordsChange={handleRecordsChange} onTemplatesChange={handleTemplatesChange} />}
         
@@ -107,7 +107,7 @@ export default function AttendanceApp(props) {
         {activeTab === 'settings' && <SettingsView settings={settings} onSettingsChange={handleSettingsChange} employees={employees} attendanceRecords={attendanceRecords} onEmployeesChange={handleEmployeesChange} onRecordsChange={handleRecordsChange} />}
       </div>
 
-      {/* 底部导航 */}
+      {/* Bottom navigation */}
       <MobileBottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>;
 }

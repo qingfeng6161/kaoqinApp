@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react';
 // @ts-ignore;
 import { useToast } from '@/components/ui';
 
-// 本地存储管理器 - 专为安卓APK设计
+// Local storage manager - designed for Android APK
 export const LocalStorageManager = {
-  // 数据键名
+  // Data keys
   KEYS: {
     EMPLOYEES: 'attendance_employees',
     RECORDS: 'attendance_records',
     TEMPLATES: 'attendance_templates',
     SETTINGS: 'attendance_settings'
   },
-  // 初始化数据
+  // Initialize data
   initData: () => {
     const defaultEmployees = [{
       id: '1',
@@ -67,17 +67,17 @@ export const LocalStorageManager = {
       }
     }];
 
-    // 初始化员工数据
+    // Initialize employee data
     if (!localStorage.getItem(LocalStorageManager.KEYS.EMPLOYEES)) {
       localStorage.setItem(LocalStorageManager.KEYS.EMPLOYEES, JSON.stringify(defaultEmployees));
     }
 
-    // 初始化模板数据
+    // Initialize template data
     if (!localStorage.getItem(LocalStorageManager.KEYS.TEMPLATES)) {
       localStorage.setItem(LocalStorageManager.KEYS.TEMPLATES, JSON.stringify(defaultTemplates));
     }
 
-    // 初始化设置
+    // Initialize settings
     if (!localStorage.getItem(LocalStorageManager.KEYS.SETTINGS)) {
       localStorage.setItem(LocalStorageManager.KEYS.SETTINGS, JSON.stringify({
         autoFill: true,
@@ -86,19 +86,19 @@ export const LocalStorageManager = {
       }));
     }
 
-    // 初始化记录（空数组）
+    // Initialize records (empty array)
     if (!localStorage.getItem(LocalStorageManager.KEYS.RECORDS)) {
       localStorage.setItem(LocalStorageManager.KEYS.RECORDS, JSON.stringify([]));
     }
   },
-  // 员工管理
+  // Employee management
   employees: {
     getAll: () => {
       try {
         const data = localStorage.getItem(LocalStorageManager.KEYS.EMPLOYEES);
         return data ? JSON.parse(data) : [];
       } catch (error) {
-        console.error('读取员工数据失败:', error);
+        console.error('Failed to load employees:', error);
         return [];
       }
     },
@@ -107,7 +107,7 @@ export const LocalStorageManager = {
         const employees = LocalStorageManager.employees.getAll();
         const existing = employees.find(e => e.name === name.trim());
         if (existing) {
-          throw new Error('员工已存在');
+          throw new Error('Employee already exists');
         }
         const newEmployee = {
           id: Date.now().toString(),
@@ -118,7 +118,7 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.EMPLOYEES, JSON.stringify(employees));
         return newEmployee;
       } catch (error) {
-        console.error('添加员工失败:', error);
+        console.error('Failed to add employee:', error);
         throw error;
       }
     },
@@ -129,19 +129,19 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.EMPLOYEES, JSON.stringify(filtered));
         return filtered;
       } catch (error) {
-        console.error('删除员工失败:', error);
+        console.error('Failed to remove employee:', error);
         throw error;
       }
     }
   },
-  // 考勤记录管理
+  // Attendance records management
   records: {
     getAll: () => {
       try {
         const data = localStorage.getItem(LocalStorageManager.KEYS.RECORDS);
         return data ? JSON.parse(data) : [];
       } catch (error) {
-        console.error('读取考勤记录失败:', error);
+        console.error('Failed to load records:', error);
         return [];
       }
     },
@@ -158,7 +158,7 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.RECORDS, JSON.stringify(records));
         return newRecord;
       } catch (error) {
-        console.error('添加考勤记录失败:', error);
+        console.error('Failed to add record:', error);
         throw error;
       }
     },
@@ -176,7 +176,7 @@ export const LocalStorageManager = {
         }
         return null;
       } catch (error) {
-        console.error('更新考勤记录失败:', error);
+        console.error('Failed to update record:', error);
         throw error;
       }
     },
@@ -202,19 +202,19 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.RECORDS, JSON.stringify(allRecords));
         return allRecords;
       } catch (error) {
-        console.error('批量更新考勤记录失败:', error);
+        console.error('Failed to bulk update records:', error);
         throw error;
       }
     }
   },
-  // 模板管理
+  // Template management
   templates: {
     getAll: () => {
       try {
         const data = localStorage.getItem(LocalStorageManager.KEYS.TEMPLATES);
         return data ? JSON.parse(data) : [];
       } catch (error) {
-        console.error('读取模板数据失败:', error);
+        console.error('Failed to load templates:', error);
         return [];
       }
     },
@@ -229,7 +229,7 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.TEMPLATES, JSON.stringify(templates));
         return newTemplate;
       } catch (error) {
-        console.error('添加模板失败:', error);
+        console.error('Failed to add template:', error);
         throw error;
       }
     },
@@ -244,7 +244,7 @@ export const LocalStorageManager = {
         }
         return null;
       } catch (error) {
-        console.error('更新模板失败:', error);
+        console.error('Failed to update template:', error);
         throw error;
       }
     },
@@ -255,12 +255,12 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.TEMPLATES, JSON.stringify(filtered));
         return filtered;
       } catch (error) {
-        console.error('删除模板失败:', error);
+        console.error('Failed to remove template:', error);
         throw error;
       }
     }
   },
-  // 设置管理
+  // Settings management
   settings: {
     get: () => {
       try {
@@ -271,7 +271,7 @@ export const LocalStorageManager = {
           notifications: true
         };
       } catch (error) {
-        console.error('读取设置失败:', error);
+        console.error('Failed to load settings:', error);
         return {
           autoFill: true,
           theme: 'light',
@@ -284,12 +284,12 @@ export const LocalStorageManager = {
         localStorage.setItem(LocalStorageManager.KEYS.SETTINGS, JSON.stringify(settings));
         return settings;
       } catch (error) {
-        console.error('更新设置失败:', error);
+        console.error('Failed to update settings:', error);
         throw error;
       }
     }
   },
-  // 数据备份和恢复
+  // Data backup and restore
   backup: {
     export: () => {
       try {
@@ -302,7 +302,7 @@ export const LocalStorageManager = {
         };
         return JSON.stringify(data, null, 2);
       } catch (error) {
-        console.error('导出数据失败:', error);
+        console.error('Failed to export data:', error);
         throw error;
       }
     },
@@ -315,12 +315,12 @@ export const LocalStorageManager = {
         if (data.settings) localStorage.setItem(LocalStorageManager.KEYS.SETTINGS, JSON.stringify(data.settings));
         return true;
       } catch (error) {
-        console.error('导入数据失败:', error);
+        console.error('Failed to import data:', error);
         throw error;
       }
     }
   }
 };
 
-// 初始化数据
+// Initialize data
 LocalStorageManager.initData();
